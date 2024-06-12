@@ -80,3 +80,15 @@ header {
     color: brown;
     border-radius: 10px;
 }
+.admin-content-right-produc_cate-list table{
+    max-width: 500px;
+    width: 80%;
+    margin: 10px 5px;   
+    border: 2px solid;
+    border-collapse: collapse;
+}
+.admin-content-right-produc_cate-list th,
+.admin-content-right-produc_cate-list td{
+    border: 2px solid;
+    padding: 5px;
+}

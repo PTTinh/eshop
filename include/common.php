@@ -25,6 +25,7 @@ function is_get_method(): bool
 function redirect_to(string $page)
 {
 	$page = ROOT_PATH . "/$page";
+	$page = "/$page";
 	$page = str_replace("//", "/", $page);
 	if ($page[0] == "/") {
 		$page = substr($page, 1);
@@ -39,7 +40,8 @@ function redirect_to(string $page)
  */
 function js_redirect_to(string $page, bool $is_stop = true)
 {
-	$page = ROOT_PATH . "/$page";
+	// $page = ROOT_PATH . "/$page";
+	$page = "/$page";
 	$page = str_replace("//", "/", $page);
 	if ($page[0] == "/") {
 		$page = substr($page, 1);

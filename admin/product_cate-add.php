@@ -14,20 +14,20 @@ if (is_post_method()) {
         $result = db_execute($sql, $data);
         if ($result == true) {
             js_alert("Thêm dữ liệu thành công.");
+            js_redirect_to("/admin/product_cate-list.php");
         }
     }
 }
 
 ?>
 <div class="admin-content-right">
-            <div class="admin-content-right-produc_cate-add">
-                <h1>Thêm Danh Mục</h1>
-                <form action="" method="post">
-                    <input name="cate_name" type="text" placeholder="Nhập tên danh mục">
-                    <button type="submit">Thêm</button>
-                </form>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+    <div class="admin-content-right-produc_cate-add">
+        <h1>Thêm Danh Mục</h1>
+        <form action="" method="post">
+            <input name="cate_name" type="text" placeholder="Nhập tên danh mục">
+            <button type="submit">Thêm</button>
+        </form>
+    </div>
+</div>
+</section>
+<?php include "_footer.php" ?>
