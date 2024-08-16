@@ -21,7 +21,7 @@ if (is_post_method()) {
 
 ?>
 <div class="admin-content-right">
-    <div class="admin-content-right-produc_cate-add">
+    <div class="admin-content-right-product_cate-add">
         <h1>Thêm Danh Mục</h1>
         <form action="" method="post">
             <input name="cate_name" type="text" placeholder="Nhập tên danh mục">
