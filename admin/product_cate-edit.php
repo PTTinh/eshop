@@ -23,35 +23,42 @@ include "_slider.php";
 //     }
 // }
 $id = $_GET["id"] ?? 0;
-if (is_post_method()){
+if (is_post_method()) {
     // Nhận dữ liệu từ form, method="post"
-    $name = $_POST["cate_name"] ?? "";
+    $name = htmlspecialchars($_POST['cate_name'] ?? "");
     // Nếu biến $name có dữ liệu
-    if (empty($name) == false){
-        // câu query sử dụng parameter (ký tự "?")
-        $sql = "UPDATE product_cate SET cate_name=? 
+    if (empty($name) == false) {
+        $sql = "SELECT * FROM product_cate WHERE id=?";
+        $data = db_select($sql, [$id]);
+        if ($name == $data[0]["cate_name"]) {
+            js_alert("Tên danh mục không thay đổi!");
+        } else {
+
+            // câu query sử dụng parameter (ký tự "?")
+            $sql = "UPDATE product_cate SET cate_name=? 
                 WHERE id=? ";
-        // mảng dữ liệu dùng cho param tương ứng từng vị trí
-        $param = [$name, $id];
-        $ket_qua = db_execute($sql, $param);
-        // Nếu thực thi thành công (kết quả => true)
-        if ($ket_qua == true){
-            js_alert("Sửa danh mục thành công!");
-            // quay về trang danh sách khi sửa thành công
-            js_redirect_to("/admin/product_cate-list.php");
+            // mảng dữ liệu dùng cho param tương ứng từng vị trí 
+            $param = [$name, $id];
+            $ket_qua = db_execute($sql, $param);
+            // Nếu thực thi thành công (kết quả => true)
+            if ($ket_qua == true) {
+                js_alert("Sửa danh mục thành công!");
+                // quay về trang danh sách khi sửa thành công
+                js_redirect_to("/admin/product_cate-list.php");
+            }
         }
     }
-}else{
+} else {
     // Viết câu query để select dữ liệu của bảng product_cate theo id
     // Thực thi query để nhận kết quả
     $sql = "SELECT * FROM product_cate WHERE id=?";
     $data = db_select($sql, [$id]);
     // Nếu không select được dữ liệu thì về trang danh sách
-    if (count($data) == 0)
-    {
+    if (count($data) == 0) {
         js_redirect_to("/admin/product_cate-list.php");
     }
 }
+
 ?>
 <div class="admin-content-right">
 

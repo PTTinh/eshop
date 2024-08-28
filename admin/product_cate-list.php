@@ -7,6 +7,7 @@ $data = db_select($sql);
 ?>
 <div class="admin-content-right">
     <div class="admin-content-right-product_cate-list">
+    <h1>Danh Sách Danh Mục</h1>
         <table>
             <colgroup>
                 <col style="width: 5%;" />
@@ -34,6 +35,9 @@ $data = db_select($sql);
                     </tr>
                 <?php } ?>
             </tbody>
+            <tfoot>
+                
+            </tfoot>
         </table>
     </div>
 </div>

@@ -3,7 +3,7 @@ include "_header.php";
 include "_slider.php";
 if (is_post_method()) {
     //nhận dữ liệu từ form
-    $name = $_POST['cate_name'] ?? "";
+    $name = htmlspecialchars($_POST['cate_name'] ?? "");
     //nếu $name có dữ liệu
     if (!empty($name)) {
         //câu query sử dụng parameter (ký tự "?")

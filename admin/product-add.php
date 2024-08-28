@@ -7,7 +7,7 @@ if (is_post_method()) {
     $product_name = $_POST['product_name'] ?? "";
     $price = $_POST['price'] ?? "";
     $discount_price = $_POST['discount_price'] ?? "";
-    if ($price > $discount_price) {
+    if ($price < $discount_price) {
         js_alert("Giá khuyến mãi nhỏ hơn giá sản phẩm.");
     } else {
         $defcription = $_POST['defcription'] ?? "";
@@ -75,10 +75,11 @@ if (is_post_method()) {
                 <input name="price" type="number" required>
                 <label for="">Giá khuyến mãi <span style="color: red;">*</span></label>
                 <input name="discount_price" type="number" required>
-                <label for="">Mô tả sản phẩm <span style="color: red;">*</span></label>
+                <label for="">Mô tả sản phẩm <span style="color: red;">*</span></label><br>
+                <!-- <a href="#" id="Mota" onclick="Mota()">Mô Tả</a><br> -->
                 <textarea id="editor1" name="defcription" cols="30" rows="10"></textarea>
+                <label for="">Ảnh Sản Phẩm <span style="color: red;">*</span></label>
             </div>
-            <label for="">Ảnh Sản Phẩm <span style="color: red;">*</span></label>
             <input name="img" type="file">
             <button type="submit">Thêm</button>
         </form>
@@ -86,10 +87,9 @@ if (is_post_method()) {
 </div>
 </section>
 <script>
-    CKEDITOR.replace('editor1', {
-        filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
-        filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
-
-    });
+        CKEDITOR.replace('editor1', {
+            filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        });
 </script>
 <?php include "_footer.php" ?>
