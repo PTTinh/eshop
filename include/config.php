@@ -11,7 +11,7 @@ define('ROOT_PATH', "/eshop");
 define('ASSET_PATH', "/eshop/asset");
 
 // Thư mục chứa file upload bởi user
-define('UPLOAD_PATH', "/upload");
+define('UPLOAD_PATH', "/eshop/upload");
 
 // Đường dẫn đầy đủ đến thư mục hiện tại, không cần chỉnh sửa nếu dùng XAMPP
 define('DOCUMENT_ROOT_PATH', $_SERVER["DOCUMENT_ROOT"]);
@@ -24,3 +24,5 @@ $database = [
 	"password" => "",
 ];
 
+// Hệ thống router trong trang web
+$web_routes = require "route.php";

@@ -1,6 +1,6 @@
 <?php
 include "_header.php";
-include "_slider.php";
+
 if (is_post_method()) {
     //nhận dữ liệu từ form
     $name = htmlspecialchars($_POST['cate_name'] ?? "");
@@ -13,8 +13,8 @@ if (is_post_method()) {
         $data = [$name];
         $result = db_execute($sql, $data);
         if ($result == true) {
-            js_alert("Thêm dữ liệu thành công.");
-            js_redirect_to("/admin/product_cate-list.php");
+            set_notify("Thêm dữ liệu thành công.");
+            redirect_to(route("qldm"));
         }
     }
 }

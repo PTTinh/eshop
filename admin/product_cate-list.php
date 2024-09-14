@@ -1,6 +1,5 @@
 <?php
 include "_header.php";
-include "_slider.php";
 $sql = "select id, cate_name from product_cate";
 $data = db_select($sql);
 //xem trc dữ liệu dd($data);
@@ -29,8 +28,8 @@ $data = db_select($sql);
                     <tr>
                         <td><?= "$id" ?></td>
                         <td><?= "$name" ?></td>
-                        <td><a href="product_cate-edit.php?id=<?= $id?>" style="color:#fff; background-color: limegreen;">Sửa</a>
-                            <a href="product_cate-dele.php?id=<?= $id ?>" style="color:#fff;background-color: red;" onclick="return confirm('Xác nhận xóa')">Xóa</a>
+                        <td><a href="<?= route("sdm", ["id" => $id])?>" style="color:#fff; background-color: limegreen;">Sửa</a>
+                            <a href="<?= route("xdm", ["id" => $id])?>" style="color:#fff;background-color: red;" onclick="return confirm('Xác nhận xóa')">Xóa</a>
                         </td>
                     </tr>
                 <?php } ?>

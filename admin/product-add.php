@@ -1,6 +1,5 @@
 <?php
 include "_header.php";
-include "_slider.php";
 
 if (is_post_method()) {
     //nhận dữ liệu từ form
@@ -8,7 +7,7 @@ if (is_post_method()) {
     $price = $_POST['price'] ?? "";
     $discount_price = $_POST['discount_price'] ?? "";
     if ($price < $discount_price) {
-        js_alert("Giá khuyến mãi nhỏ hơn giá sản phẩm.");
+        $alert = "Giá khuyến mãi nhỏ hơn giá sản phẩm.";
     } else {
         $defcription = $_POST['defcription'] ?? "";
         $img = upload_and_return_filename("img") ?? "";
@@ -48,8 +47,8 @@ if (is_post_method()) {
                     $alert = "Thêm dữ liệu thất bại.";
                 }
             }
-            js_alert($alert);
-            js_redirect_to("/admin/product_cate-list.php");
+            set_notify($alert);
+            redirect_to(route("qlsp"));
         }
     }
 }
@@ -77,7 +76,7 @@ if (is_post_method()) {
                 <input name="discount_price" type="number" required>
                 <label for="">Mô tả sản phẩm <span style="color: red;">*</span></label><br>
                 <!-- <a href="#" id="Mota" onclick="Mota()">Mô Tả</a><br> -->
-                <textarea id="editor1" name="defcription" cols="30" rows="10"></textarea>
+                <textarea name="defcription" cols="30" rows="10"></textarea>
                 <label for="">Ảnh Sản Phẩm <span style="color: red;">*</span></label>
             </div>
             <input name="img" type="file">
@@ -86,10 +85,5 @@ if (is_post_method()) {
     </div>
 </div>
 </section>
-<script>
-        CKEDITOR.replace('editor1', {
-            filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
-            filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
-        });
-</script>
+
 <?php include "_footer.php" ?>

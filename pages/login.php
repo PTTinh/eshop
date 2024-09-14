@@ -1,6 +1,5 @@
 <?php
-include "../include/common.php";
-session_start();
+
 
 if (is_post_method()) {
     $username = $_POST["user"] ?? "";
@@ -11,8 +10,8 @@ if (is_post_method()) {
         $sql = "select * from user where user=?";
         $user = db_select($sql, [$username]);
         if (count($user) == 0) {
-            js_alert("Sai tên đăng nhập hoặc mật khẩu!");
-            js_redirect_to("/pages/login.php", true);
+            set_notify("Sai tên đăng nhập hoặc mật khẩu!");
+            redirect_to(route("dangnhap"), true);
         }
         // nếu tồn tại username thì so sánh mật khẩu
         $user = $user[0];
@@ -20,11 +19,11 @@ if (is_post_method()) {
         if (password_verify($password, $user["pwd"]) == true) {
             // Lưu thông tin username vào session
             $_SESSION["username"] = $username;
-            js_alert("Đăng nhập thành công!");
-            js_redirect_to("/admin/product-add.php", true);
+            set_notify("Đăng nhập thành công!");
+            redirect_to(route("qldm"), true);
         } else {
-            js_alert("Sai tên đăng nhập hoặc mật khẩu!");
-            js_redirect_to("/pages/login.php", true);
+            set_notify("Sai tên đăng nhập hoặc mật khẩu!");
+            redirect_to(route("dangnhap"), true);
         }
     }
 }

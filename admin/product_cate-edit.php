@@ -1,5 +1,4 @@
 <?php include "_header.php";
-include "_slider.php";
 // $id = $_GET['id'] ?? 0;
 // $sql = "select * from product_cate where id = ?";
 // if(empty($sql)){
@@ -31,7 +30,7 @@ if (is_post_method()) {
         $sql = "SELECT * FROM product_cate WHERE id=?";
         $data = db_select($sql, [$id]);
         if ($name == $data[0]["cate_name"]) {
-            js_alert("Tên danh mục không thay đổi!");
+            set_notify("Tên danh mục không thay đổi!");
         } else {
 
             // câu query sử dụng parameter (ký tự "?")
@@ -42,9 +41,9 @@ if (is_post_method()) {
             $ket_qua = db_execute($sql, $param);
             // Nếu thực thi thành công (kết quả => true)
             if ($ket_qua == true) {
-                js_alert("Sửa danh mục thành công!");
+                set_notify("Sửa danh mục thành công!");
                 // quay về trang danh sách khi sửa thành công
-                js_redirect_to("/admin/product_cate-list.php");
+                redirect_to(route("qldm"));
             }
         }
     }
@@ -55,7 +54,7 @@ if (is_post_method()) {
     $data = db_select($sql, [$id]);
     // Nếu không select được dữ liệu thì về trang danh sách
     if (count($data) == 0) {
-        js_redirect_to("/admin/product_cate-list.php");
+        redirect_to(route("qldm"));
     }
 }
 

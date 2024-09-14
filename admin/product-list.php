@@ -12,9 +12,10 @@ $data = db_select($sql);
             <colgroup>
                 <col style="width: 5%;" />
                 <col style="width: 30%;" />
-                <col style="width: 25%;" />
+                <col style="width: 20%;" />
                 <col style="width: 15%;" />
-                <col style="width: 25%;" />
+                <col style="width: 20%;" />
+                <col style="width: 10%;" />
             </colgroup>
             <thead>
                 <th>ID</th>
@@ -22,6 +23,7 @@ $data = db_select($sql);
                 <th>Tên sản phẩm</th>
                 <th>Giá</th>
                 <th>Ảnh</th>
+                <th>Tùy Biến</th>
             </thead>
             <tbody>
 
@@ -39,10 +41,20 @@ $data = db_select($sql);
                         <td><?= "$cate_name" ?></td>
                         <td><?= "$product_name" ?></td>
                         <td>
-                            <?= "$price" ?> <br>
-                            <?= "$discount_price" ?>
+                            <?php 
+                            if(empty($discount_price) || $discount_price == 0){
+                                echo number_format($price);
+                            }else{
+                                echo "<s>". number_format($price)."</s>";
+                                echo "<br>";
+                                echo "$discount_price";
+                            }
+                            ?>
                         </td>
                         <td><img src="<?= upload($img) ?>" alt="" width="100"></td>
+                        <td><a href="<?= route("ssp", ["id" => $id])?>" style="color:#fff; background-color: limegreen;">Sửa</a>
+                            <a href="<?= route("xsp", ["id" => $id])?>" style="color:#fff;background-color: red;" onclick="return confirm('Xác nhận xóa')">Xóa</a>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
