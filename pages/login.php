@@ -1,6 +1,4 @@
 <?php
-
-
 if (is_post_method()) {
     $username = $_POST["user"] ?? "";
     $password = $_POST["pwd"] ?? "";
@@ -34,45 +32,45 @@ if (is_post_method()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="<?=asset("css/stylelogin.css")?>">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>WedCuaToi</title>
-    <link rel="stylesheet" href="style.css">
 </head>
-<!-- Main -->
-<form action="" method="post">
-    <div class="wrapper">
-        <div class="form-box">
-            <!-- Login -->
-            <div class="login-container" id="login">
-                <div class="top">
-                    <header>Log In</header>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" name="user" placeholder="Username">
-                    <i class="bx bx-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" class="input-field" name="pwd" placeholder="Password">
-                    <i class="bx bx-lock-alt"></i>
-                </div>
-                <div class="input-box">
-                    <input type="submit" class="submit" value="Login">
-                </div>
-                <div class="two-col">
-                    <div class="one">
-                        <input type="checkbox" id="login-check">
-                        <label for="login-check"> Remember Me</label>
-                    </div>
-                    <div class="two">
-                        <label>
-                            <a href="#">|Forgot password</a>
-                        </label>
-                    </div>
-                </div>
-            </div>
-</form>
 
 <body>
+    <!-- Main -->
+    <form action="" method="post">
+        <div class="wrapper">
+            <div class="form-box">
+                <!-- Login -->
+                <div class="login-container" id="login">
+                    <div class="top">
+                        <header>Log In</header>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="user" placeholder="Username">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" name="pwd" placeholder="Password">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Login">
+                    </div>
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="login-check">
+                            <label for="login-check"> Remember Me</label>
+                        </div>
+                        <div class="two">
+                            <label>
+                                <a href="#">|Forgot password</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    </form>
 </body>
 
 </html>

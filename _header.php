@@ -10,6 +10,7 @@ $data = db_select($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EShop</title>
     <link rel="stylesheet" href="<?= asset("css/site.css") ?>">
+    <link rel="stylesheet" href="<?= asset("css/notify.css") ?>">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -25,15 +26,19 @@ $data = db_select($sql);
                 </div>
                 <div class="nav-menu-mid">
                     <div class="menu-search">
-                        <label>
-                            <input name="ip-search" type="text" placeholder="Tìm kiếm">
-                            <i class='bx bx-search-alt-2'></i>
-                        </label>
+                        <form action="<?=route("home")?>" method="get">
+                            <label>
+                                <input name="ip-search" type="text" placeholder="Tìm kiếm"
+                                    value="<?= htmlspecialchars($_GET["ip-search"] ?? "") ?>" />
+                                <i class='bx bx-search-alt-2'></i>
+                            </label>
+                        </form>
                     </div>
                 </div>
                 <div class="nav-menu-right">
                     <div class="btn-shopping-bag">
-                        <i class='bx bx-shopping-bag'></i>
+                        <?php $cart_cnt = count(get_id_from_cart()); ?>
+                        <a class="<?= $cart_cnt > 0 ? "has-product" : "" ?>" href="<?= route("cart") ?>"><i class='bx bx-shopping-bag'></i></a>
                     </div>
                     <div class="btn-setting">
                         <i class='bx bxs-cog'></i>
@@ -44,13 +49,13 @@ $data = db_select($sql);
         <section class="main">
             <aside>
                 <nav class="aside-menu">
-                    <a href="<?=route("home")?>">DANH SÁCH SẢN PHẨM</a>
+                    <a href="<?= route("home") ?>">DANH SÁCH SẢN PHẨM</a>
                     <ul>
                         <?php foreach ($data as $value) {
                             $id = $value['id'];
                             $cate_name = $value['cate_name'];
                         ?>
-                            <li><a href="<?=route("home", ["id"=>$id])?>"><?= $cate_name ?></a></li>
+                            <li><a href="<?= route("home", ["id" => $id]) ?>"><?= $cate_name ?></a></li>
                         <?php } ?>
                     </ul>
                 </nav>

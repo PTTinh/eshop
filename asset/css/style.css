@@ -49,6 +49,7 @@ header {
     padding: 10px 0 0 12px;
 }
 
+
 .admin-content-right-product_cate-add input {
     height: 30px;
     width: 200px;
@@ -103,8 +104,6 @@ header {
 
 
 .admin-content-right-product-list table {
-    max-width: 600px;
-    width: 80%;
     margin: 10px 5px;
     border: 2px solid;
     border-collapse: collapse;
@@ -297,3 +296,5 @@ header{
 .two label a:hover{
     text-decoration: underline;
 }
+
+/* đặt hàng */

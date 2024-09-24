@@ -1,3 +1,4 @@
+
 </main>
         </section>
         <footer>
@@ -5,5 +6,5 @@
         </footer>
     </div>
 </body>
-
+<?php include "component/_notify.php"?>
 </html>

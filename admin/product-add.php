@@ -11,6 +11,7 @@ if (is_post_method()) {
     } else {
         $defcription = $_POST['defcription'] ?? "";
         $img = upload_and_return_filename("img") ?? "";
+        
         $filetype = strtolower(pathinfo($img, PATHINFO_EXTENSION));
         $filesize = $_FILES["img"]["size"] ?? "";
         $cate_id = $_POST['cate_id'] ?? "";

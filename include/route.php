@@ -29,5 +29,9 @@ return [
     "/them-san-pham"        => ["tsp", "admin/product-add.php"],
     "/sua-san-pham"         => ["ssp", "admin/product-edit.php"],
     "/xoa-san-pham"         => ["xsp", "admin/product-dele.php"],
-
+    "/them-vao-gio-hang"     => ["atc", "pages/add-to-cart.php"],
+    "/gio-hang"             => ["cart", "pages/cart.php"],
+    "/xoa-gio-hang"         => ["xgh", "pages/del-cart.php"],
+    "/dat-hang"             => ["dh", "pages/checkout.php"],
+    "/quan-ly-don-hang"             => ["qldh", "admin/bill-list.php"],
 ];

@@ -15,6 +15,7 @@ if (isset($_SESSION["username"]) == false) {
     <script src="./ckeditor/ckeditor.js"></script>
     <script src="./ckfinder/ckfinder.js"></script>
     <link rel="stylesheet" href="<?=asset("css/style.css")?>">
+    <link rel="stylesheet" href="<?=asset("css/stylelogin.css")?>">
     <link rel="stylesheet" href="<?=asset("css/admin.css")?>">
     <link rel="stylesheet" href="<?=asset("css/notify.css")?>">
 
@@ -50,6 +51,11 @@ if (isset($_SESSION["username"]) == false) {
                     <ul>
                         <li><a href="<?= route("tsp")?>">Thêm sản phẩm</a></li>
                         <li><a href="<?= route("qlsp")?>">Danh sách sản phẩm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Đơn hàng</a>
+                    <ul>
+                        <li><a href="<?= route("qldh")?>">Danh sách đơn hàng</a></li>
                     </ul>
                 </li>
             </ul>
